@@ -10,8 +10,8 @@ import AddTodo from "./AddTodo";
 import TodoLists from "./TodoLists";
 
 function Todos() {
-  const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
 
   const getTodos = () => {
     dispatch(getTodoListsRequest());
@@ -22,16 +22,14 @@ function Todos() {
   };
 
   useEffect(() => {
-    if (todos?.length === 0) {
       getTodos();
-    }
+        
   }, []);
 
   console.log(todos);
 
   return (
     <div>
-      <h3>Todos</h3>
       <AddTodo />
       <TodoLists todoLists={todos} />
     </div>

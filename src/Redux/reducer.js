@@ -37,7 +37,7 @@ const reducer = (state = initialState, { type, payload }) => {
             }
 
         case types.ADD_TODO_SUCCESS:
-            let newTodos = [state.todos, payload]
+            let newTodos = [...state.todos, payload]
             return {
                 ...state,
                 todos: newTodos,
@@ -60,11 +60,8 @@ const reducer = (state = initialState, { type, payload }) => {
             }
 
         case types.TOGGLE_TODO_SUCCESS:
-            let newToggledTodos = state.todos.map((item) => {
-                console.log("item", item)
-                return (item.id === payload.id ? payload : item
-                )
-            }
+            let newToggledTodos = state.todos.map((item) =>
+                item.id === payload.id ? payload : item
             );
             return {
                 ...state,

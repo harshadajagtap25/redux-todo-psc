@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { render } from "react-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addTodoFailure,
   addTodoRequest,
@@ -8,16 +9,18 @@ import {
 } from "../Redux/action";
 
 function AddTodo() {
-  const [todo, setTodo] = useState("");
-
   const dispatch = useDispatch();
+  const [todo, setTodo] = useState("");
+  const todos = useSelector(state=>state.todos)
   const addTodo = (payload) => {
     dispatch(addTodoRequest());
     axios
       .post("/todos", payload)
-      .then((r) => addTodoSuccess(r.data))
+      .then((r) => {addTodoSuccess(r.data);
+    })
       .catch((e) => addTodoFailure(e));
   };
+
   const handleAdd = () => {
     if (todo) {
       const payload = {
@@ -26,8 +29,10 @@ function AddTodo() {
       };
       addTodo(payload);
       setTodo("");
+      
     }
   };
+  
   return (
     <div>
       <h3>AddTodo</h3>

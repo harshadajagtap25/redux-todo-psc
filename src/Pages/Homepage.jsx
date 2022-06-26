@@ -1,14 +1,12 @@
-import React from 'react'
-import Todos from '../Components/Todos'
+import React from "react";
+import Todos from "../Components/Todos";
 
 function Homepage() {
   return (
-    <div>Homepage
-        <div>
-            <Todos/>
-        </div>
+    <div>
+      <Todos />
     </div>
-  )
+  );
 }
 
-export default Homepage
+export default Homepage;
