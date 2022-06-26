@@ -1,24 +1,20 @@
 {
   "todos": [
     {
-      "id": 2,
-      "title": "Pen",
-      "status": false
-    },
-    {
-      "title": "book",
-      "status": false,
+      "title": "many books",
       "id": 4
     },
     {
-      "title": "chappal",
-      "status": false,
-      "id": 6
+      "title": "many bags",
+      "id": 7
     },
     {
-      "title": "bag",
-      "status": false,
-      "id": 7
+      "title": "rubber",
+      "id": 8
+    },
+    {
+      "title": "Sou",
+      "id": 9
     }
   ]
 }

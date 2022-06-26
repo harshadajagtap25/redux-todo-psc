@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
   deleteTodoFailure,
   deleteTodoRequest,
@@ -36,6 +36,10 @@ function SingleTodo() {
       })
       .catch((e) => dispatch(deleteTodoFailure(e)));
   };
+
+  const editTodo =(id)=>{
+
+  }
   useEffect(() => {
     let currentTodo = todos.find((item) => item.id === Number(id));
     currentTodo && setCurrentTodo(currentTodo);
@@ -51,6 +55,10 @@ function SingleTodo() {
         Toggle
       </button>
       <button onClick={() => removeTodo(currentTodo.id)}>Delete</button>
+      <Link to={`/todo/${currentTodo.id}/edit`} >
+      <button onClick={() => editTodo(currentTodo.id)}>Edit</button>
+      </Link>
+
     </div>
   );
 }

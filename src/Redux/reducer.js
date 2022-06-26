@@ -60,8 +60,12 @@ const reducer = (state = initialState, { type, payload }) => {
             }
 
         case types.TOGGLE_TODO_SUCCESS:
-            let newToggledTodos = state.todos.map((item) =>
-                item.id === payload.id ? payload : item);
+            let newToggledTodos = state.todos.map((item) => {
+                console.log("item", item)
+                return (item.id === payload.id ? payload : item
+                )
+            }
+            );
             return {
                 ...state,
                 todos: newToggledTodos,
@@ -75,6 +79,7 @@ const reducer = (state = initialState, { type, payload }) => {
                 isLoading: false,
                 isError: true
             }
+
         case types.DELETE_TODO_REQUEST:
             return {
                 ...state,
@@ -83,7 +88,7 @@ const reducer = (state = initialState, { type, payload }) => {
             }
 
         case types.DELETE_TODO_SUCCESS:
-            
+
             const leftTodos = state.todos.filter(item => item.id !== payload.id)
             return {
                 ...state,
@@ -99,6 +104,30 @@ const reducer = (state = initialState, { type, payload }) => {
                 isError: true
             }
 
+        case types.EDIT_TODO_REQUEST:
+            return {
+                ...state,
+                isLoading: true,
+                isError: false
+            }
+
+        case types.EDIT_TODO_SUCCESS:
+            let newEditTodo = state.todos.map((item) =>
+                item.id === payload.id ? payload : item
+            );
+            return {
+                ...state,
+                todos: newEditTodo,
+                isLoading: false,
+                isError: false
+            }
+
+        case types.EDIT_TODO_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                isError: true
+            }
 
         default:
             return state
