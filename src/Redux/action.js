@@ -6,9 +6,9 @@ const getTodoListsRequest = () => {
     }
 }
 
-const getTodoListsSuccess = () => {
+const getTodoListsSuccess = (payload) => {
     return {
-        type: types.GET_TODO_LISTS_SUCCESS,
+        type: types.GET_TODO_LISTS_SUCCESS, payload
     }
 }
 
@@ -18,4 +18,71 @@ const getTodoListsFailure = () => {
     }
 }
 
-export { getTodoListsFailure, getTodoListsRequest, getTodoListsSuccess }
+const addTodoRequest = () => {
+    return {
+        type: types.ADD_TODO_REQUEST,
+    }
+}
+
+const addTodoSuccess = (payload) => {
+    return {
+        type: types.ADD_TODO_SUCCESS, payload
+    }
+}
+
+const addTodoFailure = () => {
+    return {
+        type: types.ADD_TODO_FAILURE,
+    }
+}
+
+const toggleTodoRequest = () => {
+    return {
+        type: types.TOGGLE_TODO_REQUEST,
+    }
+}
+
+const toggleTodoSuccess = (payload) => {
+    return {
+        type: types.TOGGLE_TODO_SUCCESS, payload
+    }
+}
+
+const toggleTodoFailure = () => {
+    return {
+        type: types.TOGGLE_TODO_FAILURE,
+    }
+}
+
+const deleteTodoRequest = () => {
+    return {
+        type: types.DELETE_TODO_REQUEST,
+    }
+}
+
+const deleteTodoSuccess = (payload) => {
+    return {
+        type: types.DELETE_TODO_SUCCESS, payload
+    }
+}
+
+const deleteTodoFailure = () => {
+    return {
+        type: types.DELETE_TODO_FAILURE,
+    }
+}
+
+export {
+    getTodoListsFailure,
+    getTodoListsRequest,
+    getTodoListsSuccess,
+    addTodoRequest,
+    addTodoSuccess,
+    addTodoFailure,
+    toggleTodoRequest,
+    toggleTodoSuccess,
+    toggleTodoFailure,
+    deleteTodoSuccess,
+    deleteTodoFailure,
+    deleteTodoRequest
+}

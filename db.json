@@ -1,5 +1,24 @@
 {
   "todos": [
-    { "id": 1, "title": "Milk", "status": false }
-]
+    {
+      "id": 2,
+      "title": "Pen",
+      "status": false
+    },
+    {
+      "title": "book",
+      "status": false,
+      "id": 4
+    },
+    {
+      "title": "chappal",
+      "status": false,
+      "id": 6
+    },
+    {
+      "title": "bag",
+      "status": false,
+      "id": 7
+    }
+  ]
 }
